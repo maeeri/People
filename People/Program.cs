@@ -33,14 +33,6 @@ namespace People
                 averageAge = sum / counter;
                 counter++;
             }
-
-
-
-
-
-
-
-
             IEnumerable<Person> olderThanAverage = (from person in people
                 where person.Age() > averageAge
                 select person);
@@ -85,7 +77,8 @@ namespace People
         {
             TimeSpan timeFromBirth = new TimeSpan();
             timeFromBirth = DateTime.Today - DateOfBirth;
-            int age = timeFromBirth.Days / 365;
+            double daysInAYear = 365.242199;
+            int age = Convert.ToInt32(timeFromBirth.Days / daysInAYear);
             return age;
         }
     }
